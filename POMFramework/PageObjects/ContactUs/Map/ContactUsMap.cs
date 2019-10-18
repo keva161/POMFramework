@@ -16,6 +16,7 @@ namespace POMFramework.PageObjects
         }
 
         public By ContactUsPage => By.Id("message");
-        public IWebElement ContactUsMessageBox => Driver.FindElement(By.Id("message"));
+
+        public IWebElement ContactUsMessageBox => Driver.FindElement(By.("message"));
     }
 }
