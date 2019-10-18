@@ -1,4 +1,4 @@
-Author: Kevin Tuck
+Author: Kevin Tuck\s
 Contact: kevin@kevintuck.co.uk
 
 A Selenium framework built with an interpretation of the page object model utilizing C# and MSTest.
