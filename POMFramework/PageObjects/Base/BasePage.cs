@@ -4,8 +4,10 @@ using System;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace POMFramework.PageObjects
-
 {
+    // This class contains methods that all the pages can use.
+    // It also is used as a reference for all the pages to use the Drive object.
+
     public class BasePage
     {
         protected IWebDriver Driver { get; set; }

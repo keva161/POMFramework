@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace POMFramework.PageObjects
 {
+    // This class stores the locators to all of the elements that can be interated with on the page
+
     public class ContactUsMap : BasePage
     {
         public ContactUsMap(IWebDriver driver) : base(driver)

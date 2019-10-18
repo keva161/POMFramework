@@ -6,6 +6,8 @@ using OpenQA.Selenium.Chrome;
 
 namespace POMFramework.Driver
 {
+    // This class creates the webdriver object for the pages
+
     class Factory
     {
         internal IWebDriver CreateBrowser(Browsertype name)

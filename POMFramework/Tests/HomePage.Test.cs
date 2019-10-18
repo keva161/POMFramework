@@ -3,6 +3,8 @@ using POMFramework.PageObjects;
 
 namespace POMFramework
 {
+    // Main test class
+
     [TestClass]
     public class HomePageTest : BaseTest
     { 

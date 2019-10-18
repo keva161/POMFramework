@@ -6,6 +6,8 @@ using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace POMFramework.PageObjects
 {
+    // This object stores all the methods available to the page object
+
     public class ContactUsPage : BasePage
     {
         private ContactUsMap Map;
