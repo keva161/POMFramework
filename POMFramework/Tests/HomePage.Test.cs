@@ -14,7 +14,6 @@ namespace POMFramework
             Pages.Home.GoToContactUsPage();
             Pages.ContactUs.WaitForPageToLoad();
             Pages.ContactUs.TypeAMessage();
-
         }
     }
 }
