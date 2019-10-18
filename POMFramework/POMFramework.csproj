@@ -59,6 +59,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Locators\LocatorType.cs" />
     <Compile Include="PageObjects\ContactUs\ContactUsPage.cs" />
     <Compile Include="PageObjects\ContactUs\Map\ContactUsMap.cs" />
     <Compile Include="PageObjects\Base\BasePage.cs" />
