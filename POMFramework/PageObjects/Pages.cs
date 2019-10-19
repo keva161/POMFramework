@@ -1,9 +1,8 @@
 ﻿using OpenQA.Selenium;
-using System;
 
 namespace POMFramework.PageObjects
 {
-    public class Pages
+    public class Pages : BaseTest
     {
 
         // This class is utilised by giving all of the page objects values when the initialise method is called prior to the tests execution. When this occurs, they can be referenced in the tests.

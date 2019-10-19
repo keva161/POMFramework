@@ -8,9 +8,7 @@ namespace POMFramework
 {
     public class BaseTest
     {
-        // This class contains the setup/teardown methods and keeps the main test class clean. It also isolates Selenium from the test cases meaning that the tests are not depedent on the Selenium framework and can be substituted for another framework later on. 
-        
-        public IWebDriver Driver { get; private set; }
+        public IWebDriver Driver;
 
         [TestInitialize]
         public void TestSetup()

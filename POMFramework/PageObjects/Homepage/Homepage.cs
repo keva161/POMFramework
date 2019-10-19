@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using POMFramework.PageObjects.Base;
 
 namespace POMFramework.PageObjects
 {
@@ -6,7 +7,7 @@ namespace POMFramework.PageObjects
 
     public class Homepage : BasePage
     {
-        private HomepageMap Map;
+        public HomepageMap Map;
         public Homepage(IWebDriver driver) : base(driver)
         {
             // Creates a new mapping file when the page object is created
@@ -19,11 +20,6 @@ namespace POMFramework.PageObjects
         public void GoTo()
         {
             Driver.Navigate().GoToUrl("http://automationpractice.com/");
-        }
-
-        public void GoToContactUsPage()
-        {
-            Map.ContactUsLink.Click();
         }
     }
 }
