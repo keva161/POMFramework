@@ -3,7 +3,7 @@ using POMFramework.PageObjects.Base;
 
 namespace POMFramework.PageObjects
 {
-    // This class stores the locators to all of the elements that can be interated with on the page
+    // This class stores the locators to all of the elements that can be interacted with on the page
 
 
     public class HomepageMap : BasePage

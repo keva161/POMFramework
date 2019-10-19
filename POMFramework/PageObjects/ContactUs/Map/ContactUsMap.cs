@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
 using POMFramework.PageObjects.Base;
-using System.Collections.Generic;
 
 namespace POMFramework.PageObjects
 {
@@ -10,8 +9,9 @@ namespace POMFramework.PageObjects
         {
         }
 
-
+        //Page elements used for syncronisation
         public By ContactUsPage => By.Id("message");
+        //Page elements for interaction
         public IWebElement ContactUsMessageBox => Driver.FindElement(By.Id("message"));
         public IWebElement ContactUsLink => Driver.FindElement(By.Id("contact-link"));
         public IWebElement SubjectDropdownItems => Driver.FindElement(By.Id("id_contact"));
