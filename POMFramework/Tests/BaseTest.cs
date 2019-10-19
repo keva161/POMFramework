@@ -8,7 +8,8 @@ namespace POMFramework
 {
     public class BaseTest
     {
-        public IWebDriver Driver;
+        public IWebDriver Driver { get; private set; }
+        //public Homepage Homepage { get; private set; }
 
         [TestInitialize]
         public void TestSetup()
