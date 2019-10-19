@@ -14,7 +14,6 @@ namespace POMFramework
         {
             Pages.Home.GoTo();
             Pages.ContactUs.GoTo();
-            Pages.ContactUs.WaitForPageToLoad();
             Pages.ContactUs.TypeAMessage();
             Pages.ContactUs.SelectASubject("Webmaster");
             Pages.ContactUs.SubmitForm();

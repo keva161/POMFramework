@@ -1,14 +1,15 @@
 ﻿using System;
-using POMFramework.Locators;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
+using POMFramework.Locators;
 
 namespace POMFramework.PageObjects.Base
 
 {
     public class BasePage
     {
+
         public IWebDriver Driver;
 
         public BasePage(IWebDriver driver)
@@ -22,9 +23,9 @@ namespace POMFramework.PageObjects.Base
             jsDriver.ExecuteScript("arguments[0].style.border='3px solid red'", element);
         }
         
-        public void WaitForPageToLoad(By name)
+        public void WaitForPageToLoad(By name, int duration = 10)
         {
-           var Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(5));
+           var Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(duration));
             Wait.Until(ExpectedConditions.ElementIsVisible(name));
         }
 

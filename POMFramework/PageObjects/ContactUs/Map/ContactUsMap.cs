@@ -10,7 +10,7 @@ namespace POMFramework.PageObjects
         {
         }
 
-        //Page elements used for syncronisation
+        //Page elements used for synchronisation
         public By ContactUsPage => By.Id("message");
         //Page elements for interaction
         public IWebElement ContactUsMessageBox => LocateElement(Location.ID,"message");

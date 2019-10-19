@@ -20,6 +20,7 @@ namespace POMFramework.PageObjects
         public void GoTo()
         {
             Driver.Navigate().GoToUrl("http://automationpractice.com/");
+            WaitForPageToLoad(Map.HomepageContent);
         }
     }
 }

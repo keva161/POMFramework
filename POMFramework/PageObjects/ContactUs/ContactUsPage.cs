@@ -19,10 +19,6 @@ namespace POMFramework.PageObjects
         public void GoTo()
         {
             Map.ContactUsLink.Click();
-        }
-
-        public void WaitForPageToLoad()
-        {
             WaitForPageToLoad(Map.ContactUsPage);
         }
 
@@ -50,5 +46,4 @@ namespace POMFramework.PageObjects
 
 
     }
-
 }
