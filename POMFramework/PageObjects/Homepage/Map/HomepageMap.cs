@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using POMFramework.PageObjects.Base;
+using POMFramework.Locators;
 
 namespace POMFramework.PageObjects
 {
@@ -13,6 +14,6 @@ namespace POMFramework.PageObjects
         }
 
 
-        public IWebElement ContactUsLink => Driver.FindElement(By.Id("contact-link"));
+        public IWebElement ContactUsLink => LocateElement(Location.ID, "contact-link");
     }
 }
