@@ -22,7 +22,6 @@ namespace POMFramework
             var error = Pages.ContactUs.ErrorMessageIsDisplayed();
 
             Assert.IsTrue(error);
-            
         }
     }
 }
