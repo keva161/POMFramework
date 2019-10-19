@@ -1,27 +1,52 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using POMFramework.Driver;
-using System;
-using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
+using POMFramework.PageObjects.Base;
 
 namespace POMFramework.PageObjects
 {
     public class ContactUsPage : BasePage
     {
-        private ContactUsMap Map;
+        public ContactUsMap Map;
+
         public ContactUsPage(IWebDriver driver) : base(driver)
         {
-            Map = new ContactUsMap(Driver);
+            Map = new ContactUsMap(driver);
+
         }
 
-        public void TypeAMessage()
+        public void GoTo()
         {
-            HighlightElement(Map.ContactUsMessageBox);
-            Map.ContactUsMessageBox.SendKeys("Hey this is a test of your system!");
+            Map.ContactUsLink.Click();
         }
+
         public void WaitForPageToLoad()
         {
             WaitForPageToLoad(Map.ContactUsPage);
         }
+
+        public void TypeAMessage()
+        {
+            Map.ContactUsMessageBox.SendKeys("Hey this is a test of your system!");
+        }
+
+        public void SelectASubject(string option)
+        {
+            var select = new SelectElement(Map.SubjectDropdownItems);
+            select.SelectByText(option);
+        }
+
+        public void SubmitForm()
+        {
+            Map.SubmitButton.Click();
+        }
+
+        public bool ErrorMessageIsDisplayed()
+        {
+            var result = Map.ErrorMessage.Displayed;
+            return result;
+        }
+
+
     }
+
 }

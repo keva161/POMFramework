@@ -1,10 +1,11 @@
 ﻿using OpenQA.Selenium;
+using POMFramework.PageObjects.Base;
 
 namespace POMFramework.PageObjects
 {
     public class Homepage : BasePage
     {
-        private HomepageMap Map;
+        public HomepageMap Map;
         public Homepage(IWebDriver driver) : base(driver)
         {
             Map = new HomepageMap(Driver);
@@ -13,11 +14,6 @@ namespace POMFramework.PageObjects
         public void GoTo()
         {
             Driver.Navigate().GoToUrl("http://automationpractice.com/");
-        }
-
-        public void GoToContactUsPage()
-        {
-            Map.ContactUsLink.Click();
         }
     }
 }

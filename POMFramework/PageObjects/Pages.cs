@@ -1,9 +1,8 @@
 ﻿using OpenQA.Selenium;
-using System;
 
 namespace POMFramework.PageObjects
 {
-    public class Pages
+    public class Pages : BaseTest
     {
         public static Homepage Home;
         public static ContactUsPage ContactUs;

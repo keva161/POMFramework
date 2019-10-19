@@ -11,9 +11,16 @@ namespace POMFramework
         public void Contact_us_Test()
         {
             Pages.Home.GoTo();
-            Pages.Home.GoToContactUsPage();
+            Pages.ContactUs.GoTo();
             Pages.ContactUs.WaitForPageToLoad();
             Pages.ContactUs.TypeAMessage();
+            Pages.ContactUs.SelectASubject("Webmaster");
+            Pages.ContactUs.SubmitForm();
+
+            var error = Pages.ContactUs.ErrorMessageIsDisplayed();
+
+            Assert.IsTrue(error);
+            
         }
     }
 }
