@@ -15,7 +15,7 @@ namespace POMFramework.PageObjects
             Map = new HomepageMap(Driver);
         }
 
-        // Test methods availible to the tast cases. Accessible by typing Pages.<name>.*
+        // Test methods availible that are availible to the tast cases.
 
         public void GoTo()
         {
