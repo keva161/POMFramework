@@ -18,5 +18,6 @@ namespace POMFramework.PageObjects
         public IWebElement SubjectDropdownItems => LocateElement(Location.ID, "id_contact");
         public IWebElement ErrorMessage => LocateElement(Location.Xpath, "//*[@class=\"alert alert-danger\"]");
         public IWebElement SubmitButton => LocateElement(Location.ID, "submitMessage");
+
     }
 }

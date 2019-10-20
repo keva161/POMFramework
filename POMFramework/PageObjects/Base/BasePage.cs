@@ -53,5 +53,10 @@ namespace POMFramework.PageObjects.Base
                     throw new ArgumentOutOfRangeException("Invalid locator");
             }
         }
+
+        public string GetCurrentUrl()
+        {
+            return Driver.Url;
+        }
     }
 }

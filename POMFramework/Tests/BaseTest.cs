@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using POMFramework.PageObjects;
 using POMFramework.Driver;
@@ -9,7 +9,7 @@ namespace POMFramework
     {
         public IWebDriver Driver { get; private set; }
 
-        [TestInitialize]
+        [SetUp]
         public void TestSetup()
         {
             var factory = new Factory();
@@ -17,7 +17,7 @@ namespace POMFramework
             Pages.Init(Driver);
         }
 
-        [TestCleanup]
+        [TearDown]
         public void TestEnding()
         {
             Driver.Close();

@@ -44,6 +44,9 @@ namespace POMFramework.PageObjects
             return result;
         }
 
-
+        public void CurrentUrl()
+        {
+            GetCurrentUrl();
+        }
     }
 }
