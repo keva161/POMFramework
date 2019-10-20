@@ -4,7 +4,7 @@ using POMFramework.Utilities;
 namespace POMFramework.PageObjects.Base
 
 {
-    public class BasePage
+    internal abstract class BasePage
     {
 
         public IWebDriver Driver;

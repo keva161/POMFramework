@@ -5,7 +5,7 @@ using POMFramework.Driver;
 
 namespace POMFramework
 {
-    public class BaseTest
+    public abstract class BaseTest
     {
         public IWebDriver Driver { get; private set; }
 

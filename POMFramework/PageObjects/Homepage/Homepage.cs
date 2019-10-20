@@ -5,7 +5,7 @@ namespace POMFramework.PageObjects
 {
     // This class stores all of the methods availible to the page class
 
-    public class Homepage : BasePage
+    internal class Homepage : BasePage
     {
         public HomepageMap Map;
         public Homepage(IWebDriver driver) : base(driver)

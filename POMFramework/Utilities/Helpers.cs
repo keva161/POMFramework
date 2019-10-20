@@ -5,9 +5,9 @@ using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace POMFramework.Utilities
 {
-    public class Helpers
+    internal class Helpers
     {
-        public IWebDriver Driver;
+        public readonly IWebDriver Driver;
         public Helpers(IWebDriver driver)
         {
             Driver = driver;
@@ -22,7 +22,7 @@ namespace POMFramework.Utilities
         public void WaitForPageToLoad(By name, int duration = 10)
         {
             var Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(duration));
-            Wait.Until(ExpectedConditions.ElementIsVisible(name));
+            Wait.Until(ExpectedConditions.ElementIsVisible(name)); 
         }
 
         public IWebElement LocateElement(Locators type, string name)
