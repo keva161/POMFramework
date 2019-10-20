@@ -19,7 +19,8 @@ namespace POMFramework.PageObjects
         public void GoTo()
         {
             Map.ContactUsLink.Click();
-            WaitForPageToLoad(Map.ContactUsPage);
+            Helper.WaitForPageToLoad(Map.ContactUsPage);
+            
         }
 
         public void TypeAMessage()
@@ -44,9 +45,10 @@ namespace POMFramework.PageObjects
             return result;
         }
 
-        public void CurrentUrl()
+        public string CurrentUrl()
         {
-            GetCurrentUrl();
+            var url = Helper.GetCurrentUrl();
+            return url;
         }
     }
 }

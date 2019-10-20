@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using POMFramework.Locators;
+using POMFramework.PageObjects.Base;
 
 namespace POMFramework.PageObjects
 {

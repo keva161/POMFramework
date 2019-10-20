@@ -16,6 +16,6 @@ namespace POMFramework.PageObjects
         //Page elements used for synchronisation
         public By HomepageContent => By.Id("center_column");
         //Page elements for interaction
-        public IWebElement ContactUsLink => LocateElement(Location.ID, "contact-link");
+        public IWebElement ContactUsLink => Helper.LocateElement(Location.ID, "contact-link");
     }
 }
