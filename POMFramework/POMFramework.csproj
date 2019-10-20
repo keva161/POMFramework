@@ -66,7 +66,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Locators\Location.cs" />
+    <Compile Include="Utilities\Locators.cs" />
     <Compile Include="Utilities\Helpers.cs" />
     <Compile Include="PageObjects\ContactUs\ContactUsPage.cs" />
     <Compile Include="PageObjects\ContactUs\Map\ContactUsMap.cs" />

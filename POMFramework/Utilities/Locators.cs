@@ -1,6 +1,6 @@
-﻿namespace POMFramework.Locators
+﻿namespace POMFramework.Utilities
 {
-    public enum Location
+    public enum Locators
     {
         Xpath,
         CssSelector,

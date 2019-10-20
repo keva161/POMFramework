@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using POMFramework.Locators;
 using System;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
@@ -26,25 +25,25 @@ namespace POMFramework.Utilities
             Wait.Until(ExpectedConditions.ElementIsVisible(name));
         }
 
-        public IWebElement LocateElement(Location type, string name)
+        public IWebElement LocateElement(Locators type, string name)
         {
             switch (type)
             {
-                case Location.Xpath:
+                case Locators.Xpath:
                     return Driver.FindElement(By.XPath(name));
-                case Location.CssSelector:
+                case Locators.CssSelector:
                     return Driver.FindElement(By.CssSelector(name));
-                case Location.ID:
+                case Locators.ID:
                     return Driver.FindElement(By.Id(name));
-                case Location.Name:
+                case Locators.Name:
                     return Driver.FindElement(By.Name(name));
-                case Location.LinkText:
+                case Locators.LinkText:
                     return Driver.FindElement(By.LinkText(name));
-                case Location.ClassName:
+                case Locators.ClassName:
                     return Driver.FindElement(By.ClassName(name));
-                case Location.PartialLinkText:
+                case Locators.PartialLinkText:
                     return Driver.FindElement(By.PartialLinkText(name));
-                case Location.TagName:
+                case Locators.TagName:
                     return Driver.FindElement(By.TagName(name));
                 default:
                     throw new ArgumentOutOfRangeException("Invalid locator");

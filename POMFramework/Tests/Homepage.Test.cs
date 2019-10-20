@@ -21,6 +21,7 @@ namespace POMFramework
             var url = Pages.ContactUs.CurrentUrl();
 
             Assert.AreEqual("http://automationpractice.com/index.php?controller=contact", url);
+
         }
     }
 }
