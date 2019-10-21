@@ -54,5 +54,10 @@ namespace POMFramework.Utilities
         {
             return Driver.Url;
         }
+
+        public void GoToUrl(string url) 
+        {
+            Driver.Navigate().GoToUrl(url);
+        }
     }
 }
