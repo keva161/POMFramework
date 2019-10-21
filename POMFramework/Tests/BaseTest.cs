@@ -5,7 +5,7 @@ using POMFramework.Driver;
 
 namespace POMFramework
 {
-    public abstract class BaseTest
+    public class BaseTest
     {
         public IWebDriver Driver { get; private set; }
 
@@ -13,7 +13,7 @@ namespace POMFramework
         public void TestSetup()
         {
             var factory = new Factory();
-            Driver = factory.CreateBrowser(Browsertype.Chrome);
+            Driver = factory.CreateBrowser(Network.Remote, Browsertype.Chrome);
             Pages.Init(Driver);
         }
 

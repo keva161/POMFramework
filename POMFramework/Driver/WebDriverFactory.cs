@@ -3,6 +3,8 @@ using System;
 using System.IO;
 using System.Reflection;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
+using System.Collections.Generic;
 
 namespace POMFramework.Driver
 {
@@ -10,15 +12,24 @@ namespace POMFramework.Driver
 
     class Factory
     {
-        internal IWebDriver CreateBrowser(Browsertype name)
+        internal IWebDriver CreateBrowser(Network type, Browsertype name)
         {
-            switch (name)
+            switch (type)
             {
-                case Browsertype.Chrome:
-                    return GetChromeDriver();
+                case Network.Local:
+                    switch (name)
+                    {
+                        case Browsertype.Chrome:
+                            return GetChromeDriver();
+                        default:
+                            throw new ArgumentOutOfRangeException("No such browser");
+                    }
+                case Network.Remote:
+                    return CreateSauceDriver();
                 default:
-                    throw new ArgumentOutOfRangeException("No such browser");
-            }
+                    throw new ArgumentException("Unknown Environment");
+            };
+
         }
         private IWebDriver GetChromeDriver()
         {
@@ -27,6 +38,28 @@ namespace POMFramework.Driver
 
             var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             return new ChromeDriver(outPutDirectory, options);
+        }
+        private  IWebDriver CreateSauceDriver()
+        {
+            var sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
+            var sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
+
+            ChromeOptions options = new ChromeOptions
+            {
+                PlatformName = "Windows 10",
+                BrowserVersion = "latest",
+                UseSpecCompliantProtocol = true
+            };
+            
+            Dictionary<string, object> sauceOptions = new Dictionary<string, object>
+            {
+                { "username", sauceUserName },
+                { "accessKey", sauceAccessKey }
+            };
+            
+            options.AddAdditionalCapability("sauce:options", sauceOptions, true);
+            return new RemoteWebDriver(new Uri("http://ondemand.eu-central-1.saucelabs.com/wd/hub"),
+                options.ToCapabilities(), TimeSpan.FromSeconds(600));
         }
     }
 }

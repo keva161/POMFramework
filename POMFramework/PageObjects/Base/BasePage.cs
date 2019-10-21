@@ -8,7 +8,7 @@ namespace POMFramework.PageObjects.Base
     {
 
         public IWebDriver Driver;
-        public Helpers Helper;
+        public readonly Helpers Helper;
 
         public BasePage(IWebDriver driver)
         {

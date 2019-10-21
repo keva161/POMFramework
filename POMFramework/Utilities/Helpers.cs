@@ -1,11 +1,12 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.ComponentModel;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace POMFramework.Utilities
 {
-    internal class Helpers
+    public class Helpers
     {
         public readonly IWebDriver Driver;
         public Helpers(IWebDriver driver)
@@ -24,7 +25,6 @@ namespace POMFramework.Utilities
             var Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(duration));
             Wait.Until(ExpectedConditions.ElementIsVisible(name)); 
         }
-
         public IWebElement LocateElement(Locators type, string name)
         {
             switch (type)
