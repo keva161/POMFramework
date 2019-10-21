@@ -4,7 +4,7 @@ Website: http://kevintuck.co.uk
 
 Contact: kevin@kevintuck.co.uk
 
-A Selenium Webdriver framework built with an interpretation of the page object model utilizing C# and Nunit.
+A Selenium Webdriver framework built with an interpretation of the page object model utilizing C# and Nunit. Also has the ability to run remote tests via Saucelabs.
 
 Wraps many of the common features of Selenium such as finding elements, performing page actions in a syntax that reads like English and gives non technical stackeholders the ability to easily understand and contribute to the tests. 
 
