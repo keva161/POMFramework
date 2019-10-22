@@ -5,6 +5,8 @@ using System.Reflection;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 using System.Collections.Generic;
+using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Firefox;
 
 namespace POMFramework.Driver
 {
@@ -21,6 +23,10 @@ namespace POMFramework.Driver
                     {
                         case Browsertype.Chrome:
                             return GetChromeDriver();
+                        case Browsertype.Edge:
+                            return new EdgeDriver();
+                        case Browsertype.Firefox:
+                            return GetFirefoxDriver();
                         default:
                             throw new ArgumentOutOfRangeException("No such browser");
                     }
@@ -31,6 +37,16 @@ namespace POMFramework.Driver
             };
 
         }
+
+        private IWebDriver GetFirefoxDriver()
+        {
+            var options = new FirefoxOptions();
+            options.AddArgument("--start-maximized");
+
+            var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            return new FirefoxDriver(outPutDirectory, options);
+        }
+
         private IWebDriver GetChromeDriver()
         {
             var options = new ChromeOptions();

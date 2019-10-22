@@ -7,7 +7,7 @@ namespace POMFramework.PageObjects.Base
     internal abstract class BasePage
     {
 
-        public IWebDriver Driver;
+        public readonly IWebDriver Driver;
         public readonly Helpers Helper;
 
         public BasePage(IWebDriver driver)

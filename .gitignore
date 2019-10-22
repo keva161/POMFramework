@@ -341,3 +341,4 @@ healthchecksdb
 
 # Custom Files
 chromedriver.exe
+geckodriver.exe

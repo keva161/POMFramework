@@ -4,6 +4,8 @@
 
     public enum Browsertype
     {
-        Chrome
+        Chrome,
+        Edge,
+        Firefox
     }
 }
