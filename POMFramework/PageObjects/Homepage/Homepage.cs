@@ -5,14 +5,14 @@ namespace POMFramework.PageObjects
 {
     // This class stores all of the methods availible to the page class
 
-    internal class Homepage : BasePage
+    public class Homepage : BasePage
     {
         public HomepageMap Map;
         public Homepage(IWebDriver driver) : base(driver)
         {
             // Creates a new mapping file when the page object is created
 
-            Map = new HomepageMap(Driver);
+            Map = new HomepageMap(driver);
         }
 
         // Test methods availible that are availible to the tast cases.

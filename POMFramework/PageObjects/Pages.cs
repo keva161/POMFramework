@@ -10,10 +10,10 @@ namespace POMFramework.PageObjects
         public static Homepage Home;
         public static ContactUsPage ContactUs;
 
-        public static void Init(IWebDriver Driver)
+        public static void Init(IWebDriver driver)
         {
-            Home = new Homepage(Driver);
-            ContactUs = new ContactUsPage(Driver);
+            Home = new Homepage(driver);
+            ContactUs = new ContactUsPage(driver);
         }
     }
 }

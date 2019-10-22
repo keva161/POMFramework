@@ -7,21 +7,21 @@ namespace POMFramework
 {
     public class BaseTest
     {
-        public IWebDriver Driver { get; private set; }
+        public IWebDriver driver { get; private set; }
 
         [SetUp]
         public void TestSetup()
         {
             var factory = new Factory();
-            Driver = factory.CreateBrowser(Network.Local, Browsertype.Firefox);
-            Pages.Init(Driver);
+            driver = factory.CreateBrowser(Network.Local, Browsertype.Firefox);
+            Pages.Init(driver);
         }
 
         [TearDown]
         public void TestEnding()
         {
-            Driver.Close();
-            Driver.Quit();
+            driver.Close();
+            driver.Quit();
         }
     }
 }

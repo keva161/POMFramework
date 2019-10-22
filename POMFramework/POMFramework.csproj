@@ -66,7 +66,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Driver\Network.cs" />
+    <Compile Include="Core\Network.cs" />
     <Compile Include="Utilities\Locators.cs" />
     <Compile Include="Utilities\Helpers.cs" />
     <Compile Include="PageObjects\ContactUs\ContactUsPage.cs" />
@@ -76,11 +76,11 @@
     <Compile Include="PageObjects\Homepage\Map\HomepageMap.cs" />
     <Compile Include="PageObjects\Pages.cs" />
     <Compile Include="Tests\Base\BaseTest.cs" />
-    <Compile Include="Driver\Browsertype.cs" />
+    <Compile Include="Core\Browsertype.cs" />
     <Compile Include="Tests\ContactUsPage.Tests.cs" />
     <Compile Include="Tests\Homepage.Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Driver\WebDriverFactory.cs">
+    <Compile Include="Core\WebDriverFactory.cs">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>

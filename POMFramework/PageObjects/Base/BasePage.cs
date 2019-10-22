@@ -4,16 +4,16 @@ using POMFramework.Utilities;
 namespace POMFramework.PageObjects.Base
 
 {
-    internal abstract class BasePage
+    public class BasePage
     {
 
-        public readonly IWebDriver Driver;
-        public readonly Helpers Helper;
+        public IWebDriver driver { get; private set; }
+        public Helpers Helper { get; private set; }
 
-        public BasePage(IWebDriver driver)
+        public BasePage(IWebDriver Driver)
         {
-            Helper = new Helpers(driver);
-            Driver = driver;
+            Helper = new Helpers(Driver);
+            driver = Driver;
         }
     }
 }

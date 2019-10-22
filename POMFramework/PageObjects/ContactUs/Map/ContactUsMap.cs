@@ -4,7 +4,7 @@ using POMFramework.Utilities;
 
 namespace POMFramework.PageObjects
 {
-    internal class ContactUsMap : BasePage
+    public class ContactUsMap : BasePage
     {
         public ContactUsMap(IWebDriver driver) : base(driver)
         {

@@ -7,7 +7,7 @@ namespace POMFramework.PageObjects
     // This class stores the locators to all of the elements that can be interacted with on the page
 
 
-    internal class HomepageMap : BasePage
+    public class HomepageMap : BasePage
     {
         public HomepageMap(IWebDriver driver) : base(driver)
         {

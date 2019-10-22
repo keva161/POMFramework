@@ -6,7 +6,7 @@ namespace POMFramework.PageObjects
 {
     // This object stores all the methods available to the page object
 
-    internal class ContactUsPage : BasePage
+    public class ContactUsPage : BasePage
     {
         public ContactUsMap Map;
 

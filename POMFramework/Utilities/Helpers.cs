@@ -8,7 +8,7 @@ namespace POMFramework.Utilities
 {
     public class Helpers
     {
-        public readonly IWebDriver Driver;
+        public IWebDriver Driver { get; set; }
         public Helpers(IWebDriver driver)
         {
             Driver = driver;
