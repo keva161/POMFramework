@@ -2,7 +2,7 @@
 
 # POM Framework
 
-POM framework is a framework for Selenium webdriver that wraps much of the repeatable functionality (such as locating elements, finding items on the page) in a syntax that allows test cases to be written in a language that reads just like English. This allows for higher levels of collaboration with members of your team, and allows for non-technical stakeholders the ability to easily read your tests and understand their intention.
+POM framework is a framework for Selenium webdriver which uses the page object model that wraps much of the repeatable functionality (such as locating elements, finding items on the page) in a syntax that allows test cases to be written in a language that reads just like English. This allows for higher levels of collaboration with members of your team, and allows for non-technical stakeholders the ability to easily read your tests and understand their intention. Also increasing the easy of use, maintainability and fun!
 
 ## Driver setup
 
