@@ -18,4 +18,4 @@ Tests are writing using the `Pages.<name>.<Action>`notation. Create a new page b
 
 Locating elements on the page is done in the same way as standard Selenium (using ID, Classes etc as selectors). But instead of writing `driver.FindElement(By.Id("foo"));` you simply rely on the included Helper class and type `Helper.LocateElement(Locators.ID, "foo");`.
 
-There are also additional Helper classes included for retrieving the current pages url, Navigating to a specific url and highlighting page elements.
+There are also additional Helper methods included for retrieving the current pages url, Navigating to a specific url and highlighting page elements.
