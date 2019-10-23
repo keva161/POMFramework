@@ -1,5 +1,3 @@
-[![Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://buymeacoffee.com/keva161)
-
 # POM Framework
 
 POM framework is a framework for Selenium web driver which uses the page object model and allows test cases to be written in a language that reads just like English. This enables higher levels of collaboration between members of your team and allows for non-technical stakeholders the ability to easily read your tests and understand their intention. 
