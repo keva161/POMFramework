@@ -24,7 +24,7 @@ namespace POMFramework
         }
 
         [Test]
-        [Description("Check out test")]
+        [Description("Checkout test")]
         [Author("Kevin Tuck")]
 
         public void Buy_Most_Expensive_Item()
@@ -41,10 +41,10 @@ namespace POMFramework
         }
 
         [Test]
-        [Description("Validate all item pages")]
+        [Description("Validate all items can be added to the cart")]
         [Author("Kevin Tuck")]
 
-        public void View_All_Items()
+        public void Add_All_Items_To_Cart()
         {
             Pages.Home.GoTo();
             Pages.Home.Login();
