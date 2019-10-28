@@ -67,17 +67,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Network.cs" />
+    <Compile Include="PageObjects\Checkout\CheckoutPage.cs" />
+    <Compile Include="PageObjects\Checkout\Map\CheckoutPageMap.cs" />
     <Compile Include="Utilities\Locators.cs" />
     <Compile Include="Utilities\Helpers.cs" />
-    <Compile Include="PageObjects\ContactUs\ContactUsPage.cs" />
-    <Compile Include="PageObjects\ContactUs\Map\ContactUsMap.cs" />
+    <Compile Include="PageObjects\Inventory\InventoryPage.cs" />
+    <Compile Include="PageObjects\Inventory\Map\InventoryPageMap.cs" />
     <Compile Include="PageObjects\Base\BasePage.cs" />
-    <Compile Include="PageObjects\Homepage\Homepage.cs" />
-    <Compile Include="PageObjects\Homepage\Map\HomepageMap.cs" />
+    <Compile Include="PageObjects\Home\HomePage.cs" />
+    <Compile Include="PageObjects\Home\Map\HomePageMap.cs" />
     <Compile Include="PageObjects\Pages.cs" />
     <Compile Include="Tests\Base\BaseTest.cs" />
     <Compile Include="Core\Browsertype.cs" />
-    <Compile Include="Tests\ContactUsPage.Tests.cs" />
     <Compile Include="Tests\Homepage.Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\WebDriverFactory.cs">

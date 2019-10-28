@@ -13,7 +13,7 @@ namespace POMFramework
         public void TestSetup()
         {
             var factory = new Factory();
-            driver = factory.CreateBrowser(Network.Local, Browsertype.Firefox);
+            driver = factory.CreateBrowser(Network.Local, Browsertype.Chrome);
             Pages.Init(driver);
         }
 

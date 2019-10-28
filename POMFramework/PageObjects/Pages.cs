@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using POMFramework.Utilities;
 
 namespace POMFramework.PageObjects
 {
@@ -7,13 +8,15 @@ namespace POMFramework.PageObjects
 
         // This class is utilised by giving all of the page objects values when the initialise method is called prior to the tests execution. When this occurs, they can be referenced in the tests.
 
-        public static Homepage Home;
-        public static ContactUsPage ContactUs;
+        public static HomePage Home;
+        public static InventoryPage Inventory;
+        public static CheckoutPage Checkout;
 
-        public static void Init(IWebDriver driver)
+        public static void Init(IWebDriver Driver)
         {
-            Home = new Homepage(driver);
-            ContactUs = new ContactUsPage(driver);
+            Home = new HomePage(Driver);
+            Inventory = new InventoryPage(Driver);
+            Checkout = new CheckoutPage(Driver);
         }
     }
 }

@@ -7,20 +7,50 @@ namespace POMFramework
 
     [TestFixture]
     public class Homepage : BaseTest
-    { 
+    {
 
         [Test]
-        [Description("Test to ensure the 'Contact Us' page can be accessed from the home page")]
+        [Description("Login Test")]
         [Author("Kevin Tuck")]
 
-        public void ContactUs_Page_Is_Accessible()
+        public void Valid_Login()
         {
             Pages.Home.GoTo();
-            Pages.ContactUs.GoTo();
+            Pages.Home.Login();
+            Pages.Inventory.LogOut();
 
-            var url = Pages.ContactUs.CurrentUrl();
-            Assert.AreEqual("http://automationpractice.com/index.php?controller=contact", url);
- 
+            Assert.IsTrue(Pages.Home.Map.LoginButton.Displayed);
+
+        }
+
+        [Test]
+        [Description("Check out test")]
+        [Author("Kevin Tuck")]
+
+        public void Buy_Most_Expensive_Item()
+        {
+            Pages.Home.GoTo();
+            Pages.Home.Login();
+            Pages.Inventory.SortByMostExpensive();
+            Pages.Inventory.AddItemToCart();
+            Pages.Inventory.CheckOut();
+            Pages.Checkout.EnterDetails("Example", "User", "A123");
+            Pages.Checkout.FinishCheckout();
+
+            Assert.IsTrue(Pages.Checkout.Map.PonyExpressImage.Displayed);
+        }
+
+        [Test]
+        [Description("Validate all item pages")]
+        [Author("Kevin Tuck")]
+
+        public void View_All_Items()
+        {
+            Pages.Home.GoTo();
+            Pages.Home.Login();
+            Pages.Inventory.AddAllItemsToCart();
+
+            Assert.IsTrue(Pages.Inventory.Map.ShoppingCart.Text == "6");
         }
     }
 }
