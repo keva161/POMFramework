@@ -3,9 +3,9 @@ using POMFramework.PageObjects.Base;
 
 namespace POMFramework.PageObjects
 {
-    class CheckoutPage : BasePage
+    internal class CheckoutPage : BasePage
     {
-        public CheckoutPageMap Map;
+        public readonly CheckoutPageMap Map;
         public CheckoutPage(IWebDriver driver) : base(driver)
         {
             // Creates a new mapping file when the page object is created

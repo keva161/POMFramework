@@ -8,7 +8,7 @@ namespace POMFramework.PageObjects
 
     public class InventoryPage : BasePage
     {
-        public InventoryPageMap Map;
+        public readonly InventoryPageMap Map;
 
         public InventoryPage(IWebDriver driver) : base(driver)
         {
@@ -45,9 +45,9 @@ namespace POMFramework.PageObjects
 
         public void AddAllItemsToCart()
         {
-            foreach (var Button in Map.AllStoreItems)
+            foreach (var button in Map.AllStoreItems)
             {
-                Button.Click();
+                button.Click();
             }
         }
 

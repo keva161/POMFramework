@@ -1,50 +1,42 @@
 ﻿using OpenQA.Selenium;
 using System;
-using System.IO;
-using System.Reflection;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 using System.Collections.Generic;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
+using WebDriverManager;
+using WebDriverManager.DriverConfigs.Impl;
 
 namespace POMFramework.Driver
 {
     // This class creates the webdriver object for the pages
 
-    class Factory
+    internal class Factory
     {
-        internal IWebDriver CreateBrowser(Network type, Browsertype name)
+        internal IWebDriver CreateBrowser(Network type, BrowserType name)
         {
-            switch (type)
+            return type switch
             {
-                case Network.Local:
-                    switch (name)
-                    {
-                        case Browsertype.Chrome:
-                            return GetChromeDriver();
-                        case Browsertype.Edge:
-                            return new EdgeDriver();
-                        case Browsertype.Firefox:
-                            return GetFirefoxDriver();
-                        default:
-                            throw new ArgumentOutOfRangeException("No such browser");
-                    }
-                case Network.Remote:
-                    return CreateSauceDriver();
-                default:
-                    throw new ArgumentException("Unknown Environment");
+                Network.Local => (name switch
+                {
+                    BrowserType.Chrome => GetChromeDriver(),
+                    BrowserType.Edge => new EdgeDriver(),
+                    BrowserType.Firefox => GetFirefoxDriver(),
+                    _ => throw new ArgumentOutOfRangeException(name.ToString(), $"No such browser {name.ToString()}")
+                }),
+                Network.Remote => CreateSauceDriver(),
+                _ => throw new ArgumentOutOfRangeException(type.ToString(), $"Unknown Environment {type.ToString()}")
             };
-
         }
 
         private IWebDriver GetFirefoxDriver()
         {
             var options = new FirefoxOptions();
             options.AddArgument("--start-maximized");
-
-            var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            return new FirefoxDriver(outPutDirectory, options);
+            
+            new DriverManager().SetUpDriver(new FirefoxConfig());
+            return new FirefoxDriver(options);
         }
 
         private IWebDriver GetChromeDriver()
@@ -52,22 +44,22 @@ namespace POMFramework.Driver
             var options = new ChromeOptions();
             options.AddArgument("--start-maximized");
 
-            var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            return new ChromeDriver(outPutDirectory, options);
+            new DriverManager().SetUpDriver(new ChromeConfig());
+            return new ChromeDriver(options);
         }
         private  IWebDriver CreateSauceDriver()
         {
             var sauceUserName = Environment.GetEnvironmentVariable("SAUCE_USERNAME", EnvironmentVariableTarget.User);
             var sauceAccessKey = Environment.GetEnvironmentVariable("SAUCE_ACCESS_KEY", EnvironmentVariableTarget.User);
 
-            ChromeOptions options = new ChromeOptions
+            var options = new ChromeOptions
             {
                 PlatformName = "Windows 10",
                 BrowserVersion = "latest",
                 UseSpecCompliantProtocol = true
             };
             
-            Dictionary<string, object> sauceOptions = new Dictionary<string, object>
+            var sauceOptions = new Dictionary<string, object>
             {
                 { "username", sauceUserName },
                 { "accessKey", sauceAccessKey }

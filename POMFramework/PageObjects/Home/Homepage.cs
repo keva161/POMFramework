@@ -4,11 +4,11 @@ using System;
 
 namespace POMFramework.PageObjects
 {
-    // This class stores all of the methods availible to the page class
+    // This class stores all of the methods available to the page class
 
     public class HomePage : BasePage
     {
-        public HomePageMap Map;
+        public readonly HomePageMap Map;
         public HomePage(IWebDriver driver) : base(driver)
         {
             // Creates a new mapping file when the page object is created
@@ -16,7 +16,7 @@ namespace POMFramework.PageObjects
             Map = new HomePageMap(driver);
         }
 
-        // Test methods availible that are availible to the tast cases.
+        // Test methods available that are available to the test cases.
 
         public void GoTo()
         {
@@ -26,15 +26,15 @@ namespace POMFramework.PageObjects
         public void Login()
         {
 
-            string username = Map.AcceptatedUsernames.Text;
-            string[] username_result = username.Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            var username = Map.AcceptedUsernames.Text;
+            var usernameResult = username.Split(new [] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
 
-            Map.Username_Field.SendKeys(username_result[1]);
+            Map.UsernameField.SendKeys(usernameResult[1]);
 
-            string password = Map.AcceptedPasswords.Text;
-            string[] password_result = password.Split(new string[] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            var password = Map.AcceptedPasswords.Text;
+            var passwordResult = password.Split(new [] { "\n", "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
 
-            Map.Password_Field.SendKeys(password_result[1]);
+            Map.PasswordField.SendKeys(passwordResult[1]);
 
             Map.LoginButton.Click();
 

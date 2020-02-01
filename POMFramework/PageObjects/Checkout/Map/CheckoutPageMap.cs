@@ -4,7 +4,7 @@ using POMFramework.Utilities;
 
 namespace POMFramework.PageObjects
 {
-    class CheckoutPageMap : BasePage
+    internal class CheckoutPageMap : BasePage
     {
         public CheckoutPageMap(IWebDriver driver) : base(driver)
         {

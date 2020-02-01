@@ -1,5 +1,4 @@
 ﻿using OpenQA.Selenium;
-using POMFramework.Utilities;
 
 namespace POMFramework.PageObjects
 {
@@ -12,11 +11,11 @@ namespace POMFramework.PageObjects
         public static InventoryPage Inventory;
         public static CheckoutPage Checkout;
 
-        public static void Init(IWebDriver Driver)
+        public static void Init(IWebDriver driver)
         {
-            Home = new HomePage(Driver);
-            Inventory = new InventoryPage(Driver);
-            Checkout = new CheckoutPage(Driver);
+            Home = new HomePage(driver);
+            Inventory = new InventoryPage(driver);
+            Checkout = new CheckoutPage(driver);
         }
     }
 }
