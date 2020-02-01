@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using POMFramework.PageObjects.Base;
 using POMFramework.Utilities;
-using System.Collections.Generic;
 
 namespace POMFramework.PageObjects
 {
@@ -18,10 +17,10 @@ namespace POMFramework.PageObjects
         public By InventoryContainer => By.Id("inventory_container");
 
         //Page elements for interaction
-        public IWebElement Username_Field => Helper.LocateElement(Locators.ID, "user-name");
-        public IWebElement AcceptatedUsernames => Helper.LocateElement(Locators.ID, "login_credentials");
+        public IWebElement UsernameField => Helper.LocateElement(Locators.ID, "user-name");
+        public IWebElement AcceptedUsernames => Helper.LocateElement(Locators.ID, "login_credentials");
         public IWebElement AcceptedPasswords => Helper.LocateElement(Locators.ClassName, "login_password");
-        public IWebElement Password_Field => Helper.LocateElement(Locators.ID, "password");
+        public IWebElement PasswordField => Helper.LocateElement(Locators.ID, "password");
         public IWebElement LoginButton => Helper.LocateElement(Locators.ClassName, "btn_action");
 
     }

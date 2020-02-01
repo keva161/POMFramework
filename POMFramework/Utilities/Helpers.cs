@@ -2,14 +2,13 @@
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using ExpectedConditions = SeleniumExtras.WaitHelpers.ExpectedConditions;
 
 namespace POMFramework.Utilities
 {
     public class Helpers
     {
-        public IWebDriver Driver { get; set; }
+        private IWebDriver Driver { get; }
         public Helpers(IWebDriver driver)
         {
             Driver = driver;
@@ -23,64 +22,46 @@ namespace POMFramework.Utilities
 
         public void WaitForPageToLoad(By name, int duration = 10)
         {
-            var Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(duration));
-            Wait.Until(ExpectedConditions.ElementIsVisible(name));
+            var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(duration));
+            wait.Until(ExpectedConditions.ElementIsVisible(name));
         }
 
         public void WaitForTextToBePresent(IWebElement element, string text, int duration = 10)
         {
-            var Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(duration));
-            Wait.Until(ExpectedConditions.TextToBePresentInElement(element, text));
+            var wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(duration));
+            wait.Until(ExpectedConditions.TextToBePresentInElement(element, text));
         }
 
         public IWebElement LocateElement(Locators type, string name)
         {
-            switch (type)
+            return type switch
             {
-                case Locators.Xpath:
-                    return Driver.FindElement(By.XPath(name));
-                case Locators.CssSelector:
-                    return Driver.FindElement(By.CssSelector(name));
-                case Locators.ID:
-                    return Driver.FindElement(By.Id(name));
-                case Locators.Name:
-                    return Driver.FindElement(By.Name(name));
-                case Locators.LinkText:
-                    return Driver.FindElement(By.LinkText(name));
-                case Locators.ClassName:
-                    return Driver.FindElement(By.ClassName(name));
-                case Locators.PartialLinkText:
-                    return Driver.FindElement(By.PartialLinkText(name));
-                case Locators.TagName:
-                    return Driver.FindElement(By.TagName(name));
-                default:
-                    throw new ArgumentOutOfRangeException("Invalid locator");
-            }
+                Locators.Xpath => Driver.FindElement(By.XPath(name)),
+                Locators.CssSelector => Driver.FindElement(By.CssSelector(name)),
+                Locators.ID => Driver.FindElement(By.Id(name)),
+                Locators.Name => Driver.FindElement(By.Name(name)),
+                Locators.LinkText => Driver.FindElement(By.LinkText(name)),
+                Locators.ClassName => Driver.FindElement(By.ClassName(name)),
+                Locators.PartialLinkText => Driver.FindElement(By.PartialLinkText(name)),
+                Locators.TagName => Driver.FindElement(By.TagName(name)),
+                _ => throw new ArgumentOutOfRangeException(type.ToString(), $"Invalid Type, {type.ToString()}")
+            };
         }
 
         public IList<IWebElement> LocateElements(Locators type, string name)
         {
-            switch (type)
+            return type switch
             {
-                case Locators.Xpath:
-                    return Driver.FindElements(By.XPath(name));
-                case Locators.CssSelector:
-                    return Driver.FindElements(By.CssSelector(name));
-                case Locators.ID:
-                    return Driver.FindElements(By.Id(name));
-                case Locators.Name:
-                    return Driver.FindElements(By.Name(name));
-                case Locators.LinkText:
-                    return Driver.FindElements(By.LinkText(name));
-                case Locators.ClassName:
-                    return Driver.FindElements(By.ClassName(name));
-                case Locators.PartialLinkText:
-                    return Driver.FindElements(By.PartialLinkText(name));
-                case Locators.TagName:
-                    return Driver.FindElements(By.TagName(name));
-                default:
-                    throw new ArgumentOutOfRangeException("Invalid locator");
-            }
+                Locators.Xpath => Driver.FindElements(By.XPath(name)),
+                Locators.CssSelector => Driver.FindElements(By.CssSelector(name)),
+                Locators.ID => Driver.FindElements(By.Id(name)),
+                Locators.Name => Driver.FindElements(By.Name(name)),
+                Locators.LinkText => Driver.FindElements(By.LinkText(name)),
+                Locators.ClassName => Driver.FindElements(By.ClassName(name)),
+                Locators.PartialLinkText => Driver.FindElements(By.PartialLinkText(name)),
+                Locators.TagName => Driver.FindElements(By.TagName(name)),
+                _ => throw new ArgumentOutOfRangeException(type.ToString(), $"Invalid Type, {type.ToString()}")
+            };
         }
 
         public string GetCurrentUrl()
@@ -98,9 +79,9 @@ namespace POMFramework.Utilities
             Driver.Navigate().GoToUrl(url);
         }
 
-        public string GetText(IWebElement Element)
+        public string GetText(IWebElement element)
         {
-            return Element.Text;
+            return element.Text;
         }
     }
 }

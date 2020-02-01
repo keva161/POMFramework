@@ -6,14 +6,11 @@ namespace POMFramework.PageObjects.Base
 {
     public class BasePage
     {
+        protected Helpers Helper { get; }
 
-        public IWebDriver driver { get; private set; }
-        public Helpers Helper { get; set; }
-
-        public BasePage(IWebDriver Driver)
+        protected BasePage(IWebDriver driver)
         {
-            Helper = new Helpers(Driver);
-            driver = Driver;
+            Helper = new Helpers(driver);
         }
     }
 }

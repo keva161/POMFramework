@@ -23,7 +23,7 @@ namespace POMFramework.PageObjects
         public IList<IWebElement> AddItemToCart => Helper.LocateElements(Locators.Xpath, "//button[contains(text(), 'ADD TO CART')]");
         public IWebElement ShoppingCart => Helper.LocateElement(Locators.Xpath, "//*[@id=\"shopping_cart_container\"]/a/span");
         public IWebElement CheckoutButton => Helper.LocateElement(Locators.Xpath, "//a[contains(text(), 'CHECKOUT')]");
-        public IList<IWebElement> AllStoreItems => Helper.LocateElements(Locators.Xpath, "//div[@class=\"inventory_item\"]//button");
+        public IEnumerable<IWebElement> AllStoreItems => Helper.LocateElements(Locators.Xpath, "//div[@class=\"inventory_item\"]//button");
 
     }
 }
